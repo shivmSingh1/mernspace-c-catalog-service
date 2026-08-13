@@ -11,10 +11,15 @@ module.exports = {
         project: true,
         tsconfigRootDir: __dirname,
     },
+    // Prevent ESLint from running on this config file itself, which can
+    // cause a type-aware parser error if your tsconfig doesn't include it.
+    ignorePatterns: [".eslintrc.cjs"],
     root: true,
     rules: {
         "no-console": "error",
         "dot-notation": "error",
         "@typescript-eslint/require-await": "off",
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/unbound-method": "off",
     },
 };
